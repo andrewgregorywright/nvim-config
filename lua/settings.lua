@@ -3,30 +3,33 @@
 ----------------------------------------------------
 
 -- set background=dark
-vim.o.number = true
-vim.o.autoindent = true
-vim.o.hlsearch = true
-vim.o.incsearch = true
-vim.o.wildmenu = true
-vim.o.hidden = true
-vim.o.foldcolumn = 'auto'
-vim.o.shm = 'Fc'
+vim.o.number		= true
+vim.o.autoindent	= true
+vim.o.hlsearch		= true
+vim.o.incsearch		= true
+vim.o.wildmenu		= true
+vim.o.hidden		= true
+vim.o.foldcolumn	= 'auto'
+vim.o.tabstop		= 4
+vim.o.softtabstop	= 4
+vim.o.shiftwidth	= 4
+vim.o.shm			= 'Fc'
 -- disabling backup files for conquer of completion
-vim.o.nobackup = true
+vim.o.nobackup		= true
 vim.o.nowritebackup = true
 -- recommended for conquer of completion
-vim.o.updatetime = 300
+vim.o.updatetime	= 300
 -- recommended for conquer of completion
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn	= 'yes'
 vim.opt.suffixes:append({ '.js' })
 vim.opt.suffixes:append({ '.ts' })
 -- Set the height of the command history window
-vim.o.cmdwinheight = 15
+vim.o.cmdwinheight	= 15
 -- This prevents vimgrep from searching in the node_modules subfolder
 vim.opt.wildignore:append({ '**/node_modules/**', 'node_modules/**' })
 -- Set the fold method
-vim.o.foldmethod = 'marker'
-vim.g.mapleader = " "
+vim.o.foldmethod	= 'marker'
+vim.g.mapleader		= " "
 
 vim.g.python3_host_prog = '/home/agwright/.pyenv/shims/python'
 vim.g.loaded_python_provider = 0

@@ -1,8 +1,15 @@
+
 ----------------------------------------------------
 -- setting options
 ----------------------------------------------------
 
 require('settings')
+
+----------------------------------------------------
+-- lazy
+----------------------------------------------------
+
+require('setup-lazy')
 
 ----------------------------------------------------
 -- syntax and color
@@ -16,25 +23,19 @@ require('syntax-and-color')
 
 vim.cmd('filetype plugin indent on')
 
-local ftd_group = vim.api.nvim_create_augroup("filetypedetect", { clear = true })
+local ftd_group = vim.api.nvim_create_augroup('filetypedetect', { clear = true })
 vim.api.nvim_create_autocmd(
-	{ "BufEnter", "BufNewFile" },
-	{ pattern = "wanderingarticles.conf", command = "setf json", group = ftd_group }
+	{ 'BufEnter', 'BufNewFile' },
+	{ pattern = 'wanderingarticles.conf', command = 'setf json', group = ftd_group }
 )
-
-----------------------------------------------------
--- LSP
-----------------------------------------------------
-
-require('lsp-setup')
 
 ----------------------------------------------------
 -- autocommands
 ----------------------------------------------------
 
 vim.api.nvim_create_autocmd(
-	{ "BufEnter" },
-	{ pattern = "*", command = "if &buftype == 'terminal' | :startinsert | endif" }
+	{ 'BufEnter' },
+	{ pattern = '*', command = "if &buftype == 'terminal' | :startinsert | endif" }
 )
 
 ----------------------------------------------------
@@ -70,6 +71,12 @@ vim.api.nvim_set_keymap('n', '<leader><space>', 'za', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<leader>a', ':call TmpAddEslintExceptionToAny()<cr>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<leader>ff', ':call EchoSynInfo()<cr>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<leader>t', ':tabnew<cr>', { noremap = true })
+
+----------------------------------------------------
+-- help
+----------------------------------------------------
+
+vim.cmd('helptags ALL')
 
 ----------------------------------------------------
 -- user commands
