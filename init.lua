@@ -39,20 +39,10 @@ vim.api.nvim_create_autocmd(
 )
 
 ----------------------------------------------------
--- functions
-----------------------------------------------------
-
-function open_terminal()
-	vim.cmd('split term://bash')
-	vim.cmd('resize 10')
-end
-
-----------------------------------------------------
 -- mappings
 ----------------------------------------------------
 
 vim.api.nvim_set_keymap('n', '<leader>s', ':execute "lvimgrep /\\v<" . expand("<cword>") . ">/j src/**/*.js"<cr>:lopen<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>n', '<Esc>:NERDTreeToggle<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>h', '<Esc>:nohl<cr>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<c-h>', '<c-w><c-h>', { noremap = true })
@@ -62,7 +52,6 @@ vim.api.nvim_set_keymap('n', '<c-l>', '<c-w><c-l>', { noremap = true })
 
 vim.api.nvim_set_keymap('n', '<leader><space>', 'za', { noremap = true })
 
--- vim.api.nvim_set_keymap('n', '<c-n>', ':lua open_terminal()<cr>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<leader>f', ':call RegexKeyword()<cr>', { noremap = true })
 -- vim.api.nvim_set_keymap('v', '<leader>vf', ':call LvimgrepVisualSelection()<cr>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<leader>p', ':call CreatePropertiesSection(expand("<cword>"))<cr>', { noremap = true })
@@ -84,4 +73,4 @@ vim.cmd('helptags ALL')
 
 vim.api.nvim_create_user_command('H', 'tabnew | h | wincmd j | q | h <args>', { nargs = 1 })
 -- command -range	ReqToImp	call ConvertRequireToImport(<line1>, <line2>)
-vim.api.nvim_create_user_command('Al', 'call LineUpObjectLiteralVertically(<line1>, <line2>)', { range = true })
+-- vim.api.nvim_create_user_command('Al', 'call LineUpObjectLiteralVertically(<line1>, <line2>)', { range = true })

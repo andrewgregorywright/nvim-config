@@ -2,7 +2,6 @@
 -- settings
 ----------------------------------------------------
 
--- set background=dark
 vim.o.number		= true
 vim.o.autoindent	= true
 vim.o.hlsearch		= true
@@ -18,11 +17,11 @@ vim.o.shm			= 'Fc'
 vim.o.nobackup		= true
 vim.o.nowritebackup = true
 -- recommended for conquer of completion
-vim.o.updatetime	= 300
+-- vim.o.updatetime	= 300
 -- recommended for conquer of completion
-vim.o.signcolumn	= 'yes'
-vim.opt.suffixes:append({ '.js' })
-vim.opt.suffixes:append({ '.ts' })
+-- vim.o.signcolumn	= 'yes'
+-- vim.opt.suffixes:append({ '.js' })
+-- vim.opt.suffixes:append({ '.ts' })
 -- Set the height of the command history window
 vim.o.cmdwinheight	= 15
 -- This prevents vimgrep from searching in the node_modules subfolder
