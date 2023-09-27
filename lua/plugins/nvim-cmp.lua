@@ -90,6 +90,7 @@ M.config = function()
 	lspconfig.docker_compose_language_service.setup{}			-- installed via "npm i -g @microsoft/compose-language-service"
 	lspconfig.dockerls.setup{}									-- installed via "npm i -g dockerfile-language-server-nodejs"
 	lspconfig.bashls.setup{}									-- installed via "npm i -g bash-language-server"
+	lspconfig.tsserver.setup{}									-- installed via "npm i -g typescript typescript-language-server"
 	lspconfig.lua_ls.setup{										-- installed from https://github.com/LuaLS/lua-language-server/releases/tag/3.7.0 into ~/bin
 		settings = {
 			Lua = {
