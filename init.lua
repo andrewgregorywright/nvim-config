@@ -1,4 +1,3 @@
-
 ----------------------------------------------------
 -- setting options
 ----------------------------------------------------
@@ -19,6 +18,7 @@ require('plugin-setups.nvim-treesitter')
 require('plugin-setups.telescope')
 require('plugin-setups.nvim-lspconfig')
 require('plugin-setups.nvim-cmp')
+require('plugin-setups.mason')
 
 ----------------------------------------------------
 -- syntax and color
