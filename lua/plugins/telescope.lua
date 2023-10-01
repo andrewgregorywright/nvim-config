@@ -6,7 +6,7 @@ return {
 		{
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
-			config = function () 
+			config = function ()
 				local configs = require("nvim-treesitter.configs")
 
 				configs.setup({
@@ -18,6 +18,7 @@ return {
 						"json",
 						"vim",
 						"vimdoc",
+						"dockerfile",
 						"query",
 						"elixir",
 						"heex",
@@ -28,7 +29,7 @@ return {
 					},
 					sync_install = false,
 					highlight = { enable = true },
-					indent = { enable = true },  
+					indent = { enable = true },
 				})
 
 				local builtin = require('telescope.builtin')
