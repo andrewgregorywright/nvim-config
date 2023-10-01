@@ -6,22 +6,19 @@
 require('settings')
 
 ----------------------------------------------------
--- lazy
+-- bootstrap lazy
 ----------------------------------------------------
 
 require('setup-lazy')
 
 ----------------------------------------------------
--- nvim-lspconfig
+-- configure plugins
 ----------------------------------------------------
 
-require('setup-nvim-lspconfig')
-
-----------------------------------------------------
--- nvim-cmp
-----------------------------------------------------
-
-require('setup-nvim-cmp')
+require('plugin-setups.nvim-treesitter')
+require('plugin-setups.telescope')
+require('plugin-setups.nvim-lspconfig')
+require('plugin-setups.nvim-cmp')
 
 ----------------------------------------------------
 -- syntax and color
