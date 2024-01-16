@@ -2,16 +2,16 @@
 -- settings
 ----------------------------------------------------
 
-vim.o.number		= true
+vim.o.number			= true
 vim.o.autoindent	= true
 vim.o.hlsearch		= true
 vim.o.incsearch		= true
 vim.o.wildmenu		= true
-vim.o.hidden		= true
+vim.o.hidden			= true
 vim.o.foldcolumn	= 'auto'
-vim.o.tabstop		= 4
-vim.o.softtabstop	= 4
-vim.o.shiftwidth	= 4
+vim.o.tabstop			= 2
+vim.o.softtabstop	= 2
+vim.o.shiftwidth	= 2
 vim.o.shm			= 'Fc'
 -- disabling backup files for conquer of completion
 vim.o.nobackup		= true
