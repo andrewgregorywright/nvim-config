@@ -32,12 +32,6 @@ require('syntax-and-color')
 
 vim.cmd('filetype plugin indent on')
 
-local ftd_group = vim.api.nvim_create_augroup('filetypedetect', { clear = true })
-vim.api.nvim_create_autocmd(
-	{ 'BufEnter', 'BufNewFile' },
-	{ pattern = 'wanderingarticles.conf', command = 'setf json', group = ftd_group }
-)
-
 ----------------------------------------------------
 -- autocommands
 ----------------------------------------------------
