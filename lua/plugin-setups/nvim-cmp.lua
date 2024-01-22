@@ -11,8 +11,8 @@ cmp.setup{
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-		['<C-n>'] = cmp.mapping.select_next_item(),
-		['<C-p>'] = cmp.mapping.select_prev_item(),
+		['<Tab>'] = cmp.mapping.select_next_item(),
+		['<S-Tab>'] = cmp.mapping.select_prev_item(),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-e>'] = cmp.mapping.abort(),
@@ -28,7 +28,7 @@ cmp.setup{
 			-- { name = 'ultisnips' }, -- For ultisnips users.
 			-- { name = 'snippy' }, -- For snippy users.
 		}, {
-			{ name = 'buffer', keyword_length = 5 },
+			{ name = 'buffer', keyword_length = 5, max_item_count = 10 },
 	}),
 	formatting = {
 		format = lspkind.cmp_format{
@@ -43,15 +43,6 @@ cmp.setup{
 		}
 	},
 }
-
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-	sources = cmp.config.sources({
-			{ name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
-		}, {
-			{ name = 'buffer' },
-	})
-})
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
