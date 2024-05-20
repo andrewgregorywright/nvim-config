@@ -12,6 +12,8 @@ vim.o.foldcolumn	= 'auto'
 vim.o.tabstop			= 2
 vim.o.softtabstop	= 2
 vim.o.shiftwidth	= 2
+vim.o.splitbelow	= true
+vim.o.splitright	= true
 vim.o.shm			= 'Fc'
 -- disabling backup files for conquer of completion
 vim.o.nobackup		= true
