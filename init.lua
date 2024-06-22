@@ -54,6 +54,7 @@ vim.api.nvim_create_autocmd(
 
 vim.keymap.set('n', '<leader>s', ':execute "lvimgrep /\\v<" . expand("<cword>") . ">/j src/**/*.js"<cr>:lopen<cr>', { noremap = true, desc = "Search for the word under the cursor." })
 vim.keymap.set('n', '<leader>h', '<Esc>:nohl<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>n', '<Esc>:Neotree<cr>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<c-h>', '<c-w><c-h>', { noremap = true })
 vim.keymap.set('n', '<c-j>', '<c-w><c-j>', { noremap = true })
