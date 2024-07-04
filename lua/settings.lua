@@ -16,8 +16,8 @@ vim.o.splitbelow	= true
 vim.o.splitright	= true
 vim.o.shm			= 'Fc'
 -- disabling backup files for conquer of completion
-vim.o.nobackup		= true
-vim.o.nowritebackup = true
+-- vim.o.nobackup		= true
+-- vim.o.nowritebackup = true
 -- recommended for conquer of completion
 -- vim.o.updatetime	= 300
 -- recommended for conquer of completion
