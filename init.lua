@@ -25,6 +25,7 @@ require('plugin-setups.telescope')
 require('plugin-setups.nvim-lspconfig')
 require('plugin-setups.nvim-cmp')
 require('plugin-setups.mason')
+-- Might try this again at some point....
 -- require('plugin-setups.neotest')
 
 ----------------------------------------------------
