@@ -20,11 +20,12 @@ require('setup-lazy')
 -- configure plugins
 ----------------------------------------------------
 
+require('plugin-setups.nvim-cmp')
+require('plugin-setups.nvim-lspconfig')
+require('plugin-setups.nvim-tree')
 require('plugin-setups.nvim-treesitter')
 require('plugin-setups.telescope')
-require('plugin-setups.nvim-lspconfig')
-require('plugin-setups.nvim-cmp')
-require('plugin-setups.neo-tree')
+--require('plugin-setups.neo-tree')
 require('plugin-setups.mason')
 -- Might try this again at some point....
 -- require('plugin-setups.neotest')
@@ -54,16 +55,16 @@ vim.api.nvim_create_autocmd(
 -- mappings
 ----------------------------------------------------
 
-vim.keymap.set('n', '<leader>s', ':execute "lvimgrep /\\v<" . expand("<cword>") . ">/j src/**/*.js"<cr>:lopen<cr>', { noremap = true, desc = "Search for the word under the cursor." })
-vim.keymap.set('n', '<leader>h', '<Esc>:nohl<cr>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>n', '<Esc>:Neotree<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>s', ':execute "lvimgrep /\\v<" . expand("<cword>") . ">/j src/**/*.js"<cr>:lopen<cr>', { desc = "Search for the word under the cursor." })
+vim.keymap.set('n', '<leader>h', '<Esc>:nohl<cr>', {})
+vim.keymap.set('n', '<leader>n', '<Esc>:NvimTreeToggle<cr>', {})
 
-vim.keymap.set('n', '<c-h>', '<c-w><c-h>', { noremap = true })
-vim.keymap.set('n', '<c-j>', '<c-w><c-j>', { noremap = true })
-vim.keymap.set('n', '<c-k>', '<c-w><c-k>', { noremap = true })
-vim.keymap.set('n', '<c-l>', '<c-w><c-l>', { noremap = true })
+vim.keymap.set('n', '<c-h>', '<c-w><c-h>', {})
+vim.keymap.set('n', '<c-j>', '<c-w><c-j>', {})
+vim.keymap.set('n', '<c-k>', '<c-w><c-k>', {})
+vim.keymap.set('n', '<c-l>', '<c-w><c-l>', {})
 
-vim.keymap.set('n', '<leader><space>', 'za', { noremap = true })
+vim.keymap.set('n', '<leader><space>', 'za', {})
 
 -- vim.keymap.set('n', '<leader>f', ':call RegexKeyword()<cr>', { noremap = true })
 -- vim.keymap.set('v', '<leader>vf', ':call LvimgrepVisualSelection()<cr>', { noremap = true })
