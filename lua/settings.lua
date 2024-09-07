@@ -29,7 +29,7 @@ vim.o.cmdwinheight	= 15
 -- This prevents vimgrep from searching in the node_modules subfolder
 vim.opt.wildignore:append({ '**/node_modules/**', 'node_modules/**' })
 -- Set the fold method
-vim.o.foldmethod	= 'indent'
+vim.o.foldmethod	= 'manual'
 vim.g.mapleader		= " "
 
 vim.g.python3_host_prog = '/home/agwright/.pyenv/shims/python'
