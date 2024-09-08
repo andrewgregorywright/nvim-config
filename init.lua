@@ -55,7 +55,14 @@ vim.api.nvim_create_autocmd(
 -- mappings
 ----------------------------------------------------
 
-vim.keymap.set('n', '<leader>s', ':execute "lvimgrep /\\v<" . expand("<cword>") . ">/j src/**/*.js"<cr>:lopen<cr>', { desc = "Search for the word under the cursor." })
+local function search_current_word()
+	local word = vim.fn.expand("<cword>")
+	vim.cmd('lvimgrep /\\v<' .. word .. '>/j src/**/*')
+	vim.cmd('lopen')
+end
+
+vim.keymap.set('n', '<leader>s', search_current_word, { desc = 'Search for the word under the cursor.' })
+vim.keymap.set('n', '<leader>e', '<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<cr>', { desc = 'Reload luasnips file.' })
 vim.keymap.set('n', '<leader>h', '<Esc>:nohl<cr>', {})
 vim.keymap.set('n', '<leader>n', '<Esc>:NvimTreeToggle<cr>', {})
 

@@ -11,13 +11,30 @@ cmp.setup{
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-		['<Tab>'] = cmp.mapping.select_next_item(),
-		['<S-Tab>'] = cmp.mapping.select_prev_item(),
+		['<Tab>'] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+						cmp.select_next_item()
+				elseif luasnip.expand_or_jumpable() then
+						luasnip.expand_or_jump()
+				else
+						fallback()
+				end
+		end, { 'i', 's' }),
+		['<S-Tab>'] = cmp.mapping(function(fallback)
+				if cmp.visible() then
+						cmp.select_prev_item()
+				elseif luasnip.jumpable(-1) then
+						luasnip.jump(-1)
+				else
+						fallback()
+				end
+		end, { 'i', 's' }),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-e>'] = cmp.mapping.abort(),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		['<C-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item.
 	}),
 	sources = cmp.config.sources({
 			{ name = 'nvim_lua' },
@@ -34,11 +51,11 @@ cmp.setup{
 		format = lspkind.cmp_format{
 			with_text = true,
 			menu = {
+				luasnip = "[snip]",
 				buffer = "[buf]",
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[lua]",
 				path = "[path]",
-				luasnip = "[snip]"
 			}
 		}
 	},
