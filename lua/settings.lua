@@ -3,7 +3,8 @@
 ----------------------------------------------------
 
 vim.o.number			= true
-vim.o.autoindent	= true
+vim.o.autoindent	= false
+vim.o.smartindent	= false
 vim.o.hlsearch		= true
 vim.o.incsearch		= true
 vim.o.wildmenu		= true

@@ -40,7 +40,7 @@ require('syntax-and-color')
 -- filetypes
 ----------------------------------------------------
 
-vim.cmd('filetype plugin indent on')
+vim.cmd('filetype plugin indent off')
 
 ----------------------------------------------------
 -- autocommands
