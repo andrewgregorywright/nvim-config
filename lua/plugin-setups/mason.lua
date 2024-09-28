@@ -2,11 +2,11 @@ local mason_lspconfig = require 'mason-lspconfig'
 
 local servers = {
 	html = { filetypes = { 'html', 'twig', 'hbs'} },
-	pyright = {},									-- installed via "npm i -g pyright"
-	docker_compose_language_service = {},			-- installed via "npm i -g @microsoft/compose-language-service"
-	dockerls = {},									-- installed via "npm i -g dockerfile-language-server-nodejs"
-	bashls = {},									-- installed via "npm i -g bash-language-server"
-	tsserver = {},									-- installed via "npm i -g typescript typescript-language-server"
+	pyright = {},
+	docker_compose_language_service = {},
+	dockerls = {},
+	bashls = {},
+	tsserver = {},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
