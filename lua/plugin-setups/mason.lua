@@ -6,7 +6,7 @@ local servers = {
 	docker_compose_language_service = {},
 	dockerls = {},
 	bashls = {},
-	tsserver = {},
+	ts_ls = {},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
