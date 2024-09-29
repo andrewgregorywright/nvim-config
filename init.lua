@@ -25,10 +25,8 @@ require('plugin-setups.nvim-lspconfig')
 require('plugin-setups.nvim-tree')
 require('plugin-setups.nvim-treesitter')
 require('plugin-setups.telescope')
---require('plugin-setups.neo-tree')
 require('plugin-setups.mason')
--- Might try this again at some point....
--- require('plugin-setups.neotest')
+require('plugin-setups.neotest')
 
 ----------------------------------------------------
 -- syntax and color
