@@ -22,7 +22,7 @@ ls.add_snippets('typescript', {
 	}),
 	--]]
 	ls.parser.parse_snippet('stryc', 'try {\n\t$0\n} catch (err) {\n}'),
-	ls.parser.parse_snippet('scl', 'console.log(\'$0\')'),
+	ls.parser.parse_snippet('scl', 'console.log(\'$1\', JSON.stringify($1, null, 2))$0'),
 	ls.parser.parse_snippet('sce', 'console.error(\'$0\')'),
 })
 
