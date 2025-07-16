@@ -48,6 +48,40 @@ return {
 			}
 		},
 		{
+			"nvim-neotest/neotest",
+			dependencies = {
+				"nvim-neotest/nvim-nio",
+				"nvim-lua/plenary.nvim",
+				"antoinemadec/FixCursorHold.nvim",
+				"nvim-treesitter/nvim-treesitter",
+				"nvim-neotest/neotest-jest",
+			},
+			config = function()
+
+				require("neotest").setup({
+					adapters = {
+						require("neotest-jest")({
+							jestCommand = "npm test --",
+							jestConfig = "jest.config.js",
+							env = { CI = true },
+							cwd = function()
+								return vim.fn.getcwd()
+							end,
+						}),
+					},
+				})
+
+				vim.keymap.set('n', '<leader>tt', ':lua require("neotest").run.run()<CR>', {}) -- run the nearest test
+				vim.keymap.set('n', '<leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', {}) -- run the current file
+				vim.keymap.set('n', '<leader>td', ':lua require("neotest").run.run({strategy = "dap"})<CR>', {}) -- debug the nearest test
+				vim.keymap.set('n', '<leader>ts', ':lua require("neotest").run.stop()<CR>', {}) -- stop the nearest test
+				vim.keymap.set('n', '<leader>ta', ':lua require("neotest").run.attach()<CR>', {}) -- attach to the nearest test
+
+				vim.keymap.set('n', '<leader>to', ':lua require("neotest").output.open()<CR>', {}) -- open the output window ??
+
+			end,
+		},
+		{
 			'mfussenegger/nvim-dap-python',
 			config = function()
 				require('dap-python').setup('~/.local/share/virtualenvs/python-3.10-debugpy/bin/python')

@@ -26,7 +26,6 @@ require('plugin-setups.nvim-tree')
 require('plugin-setups.nvim-treesitter')
 require('plugin-setups.telescope')
 require('plugin-setups.mason')
-require('plugin-setups.neotest')
 
 ----------------------------------------------------
 -- syntax and color
@@ -68,10 +67,6 @@ vim.keymap.set('n', '<c-h>', '<c-w><c-h>', {})
 vim.keymap.set('n', '<c-j>', '<c-w><c-j>', {})
 vim.keymap.set('n', '<c-k>', '<c-w><c-k>', {})
 vim.keymap.set('n', '<c-l>', '<c-w><c-l>', {})
-
-vim.keymap.set('n', '<leader>tt', ':lua require("neotest").run.run()<CR>', {})
-vim.keymap.set('n', '<leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', {})
-vim.keymap.set('n', '<leader>to', ':lua require("neotest").output.open()<CR>', {})
 
 -- vim.keymap.set('n', '<leader>f', ':call RegexKeyword()<cr>', { noremap = true })
 -- vim.keymap.set('v', '<leader>vf', ':call LvimgrepVisualSelection()<cr>', { noremap = true })
