@@ -14,6 +14,28 @@ return {
 					adapters = { "pwa-node", "pwa-chrome", "pwa-msedge" },
 				})
 
+				require("dap").adapters["pwa-node"] = {
+					type = "server",
+					host = "localhost",
+					port = "${port}",
+					executable = {
+						command = "ts-node",
+						args = { vim.fn.stdpath("data") .. "/lazy/vscode-js-debug/out/src/vsDebugServer.js", "${port}"},
+					}
+				}
+
+				--[[
+				require("dap").adapters["pwa-node"] = {
+					type = "server",
+					host = "js-debug-adapter",
+					port = "${port}",
+					executable = {
+						command = "js-debug-adapter",
+						args = { "${port}" },
+					}
+				}
+				]]
+
 				for _, language in ipairs({ "typescript", "javascript" }) do
 					require("dap").configurations[language] = {
 						{
@@ -22,6 +44,7 @@ return {
 							name = "Launch file (current)",
 							program = "${file}",
 							cwd = "${workspaceFolder}",
+							resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
 						},
 						{
 							type = "pwa-node",
@@ -29,6 +52,7 @@ return {
 							name = "Launch file (src/index.ts)",
 							program = "src/index.ts",
 							cwd = "${workspaceFolder}",
+							resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
 						},
 						{
 							type = "pwa-node",
@@ -36,6 +60,7 @@ return {
 							name = "Attach",
 							processId = require("dap.utils").pick_process,
 							cwd = "${workspaceFolder}",
+							resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
 						},
 					}
 				end
@@ -62,7 +87,7 @@ return {
 					adapters = {
 						require("neotest-jest")({
 							jestCommand = "npm test --",
-							jestConfig = "jest.config.js",
+							jestConfig = "jest.config.ts",
 							env = { CI = true },
 							cwd = function()
 								return vim.fn.getcwd()
@@ -70,6 +95,16 @@ return {
 						}),
 					},
 				})
+
+				--[[
+				local dap = require('dap')
+				local original_run = dap.run
+
+				dap.run = function(config, ...)
+					print(vim.inspect(config))
+					return original_run(config, ...)
+				end
+				]]
 
 				vim.keymap.set('n', '<leader>tt', ':lua require("neotest").run.run()<CR>', {}) -- run the nearest test
 				vim.keymap.set('n', '<leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', {}) -- run the current file
